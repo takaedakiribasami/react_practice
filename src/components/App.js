@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
-const todoDataUrl = "http://localhost:3100/todos";
+import React, { useRef } from "react";
+import { useTodo } from "../hooks/useTodo"
 
 const TodoTitle = ({ title, as }) => {
   if (as === "h1") return <h1>{title}</h1>;
@@ -29,16 +27,28 @@ const TodoList = ({ todoList }) => {
   );
 };
 
-function App() {
-  const [todoList, setTodoList] = useState([]);
+const TodoAdd = ({ inputEl, handleAddTodoListItem }) => {
+  return (
+    <>
+      <textarea ref={inputEl} />
+      <button onClick={handleAddTodoListItem}>+ TODOを追加</button>
+    </>
+  );
+};
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(todoDataUrl);
-      setTodoList(response.data);
-    };
-    fetchData();
-  }, []);
+function App() {
+  const {
+    todoList,
+    addTodoListItem
+  } = useTodo();
+
+  const inputEl = useRef(null);
+
+  const handleAddTodoListItem = () => {
+    if (inputEl.current.value === "") return;
+    addTodoListItem(inputEl.current.value);
+    inputEl.current.value = "";
+  };
 
   console.log("TODOリスト", todoList);
 
@@ -57,8 +67,7 @@ function App() {
   return (
     <>
       <TodoTitle title="TODO管理" as="h1" />
-      <textarea />
-      <button>+ TODOを追加</button>
+      <TodoAdd inputEl={inputEl} handleAddTodoListItem={handleAddTodoListItem} />
       <TodoTitle title="未完了TODOリスト" as="h2" />
       <TodoList todoList={inCompletedList} />
       <TodoTitle title="完了TODOリスト" as="h2" />
