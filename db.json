@@ -1,8 +1,13 @@
 {
   "todos": [
     {
-      "content": "テスト２",
-      "id": "01FPKGSCC7N28KAEFGGNK79QSW",
+      "content": "テスト",
+      "id": "01FPKRN4T76WNR8CPXQJ6BY5XB",
+      "done": true
+    },
+    {
+      "content": "テスト３",
+      "id": "01FPKRNJ1Z916MS0K5NC3JHXT8",
       "done": false
     }
   ]
