@@ -1,33 +1,8 @@
 {
   "todos": [
     {
-      "id": 1,
-      "content": "Create React appをインストールする",
-      "done": true
-    },
-    {
-      "id": 2,
-      "content": "JSON Server仮のAPIを作成する",
-      "done": false
-    },
-    {
-      "id": 3,
-      "content": "Chakra UIをインストールする",
-      "done": false
-    },
-    {
-      "id": 4,
-      "content": "テスト",
-      "done": false
-    },
-    {
-      "content": "aiueo",
-      "id": "01FPH8NMVY66683M1XW9K5H04W",
-      "done": false
-    },
-    {
       "content": "テスト２",
-      "id": "01FPH92PZPWFD2P0N885DSHE1D",
+      "id": "01FPKGSCC7N28KAEFGGNK79QSW",
       "done": false
     }
   ]
